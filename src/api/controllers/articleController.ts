@@ -14,12 +14,16 @@ const articlesGet = (_req: Request, res: Response<Article[]>) => {
   res.json(articles);
 };
 
-const articleGet = (req: Request<{id: string}>, res: Response<Article>) => {
+const articleGet = (
+  req: Request<{id: string}>,
+  res: Response<Article>,
+  next: NextFunction,
+) => {
   try {
     const article = getArticle(Number(req.params.id));
     res.json(article);
   } catch (error) {
-    throw new CustomError((error as Error).message, 404);
+    next(new CustomError((error as Error).message, 404));
   }
 };
 
