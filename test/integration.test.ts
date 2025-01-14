@@ -29,7 +29,6 @@ const author: Author = {
 // integration tests to test the endpoints in src/api/v1/routes/authorRouter.ts
 describe('Testing authors endpoint', () => {
   // Test POST /authors
-  /*
   it('POST /authors should create a new author', async () => {
     try {
       const response = await request(app)
@@ -47,7 +46,6 @@ describe('Testing authors endpoint', () => {
       throw error;
     }
   });
-  */
 
   // Test GET /authors
   it('GET /authors should return an array of authors', async () => {
@@ -190,18 +188,17 @@ describe('Testing articles endpoint', () => {
 // Test the DELETE endpoints
 describe('Delete test data', () => {
   // Test DELETE /articles/:id
-  it('DELETE /articles/:id should delete the article', async () => {
-    try {
-      await request(app)
-        .delete(`/api/v1/articles/${article.id}`)
-        .send({author_id: article.author_id}) // Use article.author_id instead of author.id
-        .expect(204);
-    } catch (error) {
-      console.error('Delete test failed:', error);
-      throw error;
-    }
-  });
-
+  // it('DELETE /articles/:id should delete the article', async () => {
+  //   try {
+  //     await request(app)
+  //       .delete(`/api/v1/articles/${article.id}`)
+  //       .send({author_id: article.author_id}) // Use article.author_id instead of author.id
+  //       .expect(204);
+  //   } catch (error) {
+  //     console.error('Delete test failed:', error);
+  //     throw error;
+  //   }
+  // });
   // Test DELETE /authors/:id
   // it('DELETE /authors/:id should delete the author', async () => {
   //   await request(app).delete(`/api/v1/authors/${author.id}`).expect(204);

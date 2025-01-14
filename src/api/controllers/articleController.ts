@@ -50,6 +50,7 @@ const articlePut = (
       Number(req.params.id),
       req.body.title,
       req.body.description,
+      req.body.author_id,
     );
     res.json(article);
   } catch (error) {
