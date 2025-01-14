@@ -9,7 +9,7 @@ import {
 } from '../models/articleModel';
 import CustomError from '../../classes/CustomError';
 
-const articlesGet = (req: Request, res: Response<Article[]>) => {
+const articlesGet = (_req: Request, res: Response<Article[]>) => {
   const articles = getAllArticles();
   res.json(articles);
 };
@@ -24,7 +24,7 @@ const articleGet = (req: Request<{id: string}>, res: Response<Article>) => {
 };
 
 const articlePost = (
-  req: Request<unknown, unknown, Article>,
+  req: Request<unknown, unknown, Omit<Article, 'id'>>,
   res: Response<Article>,
   next: NextFunction,
 ) => {
@@ -37,7 +37,7 @@ const articlePost = (
 };
 
 const articlePut = (
-  req: Request<{id: string}, unknown, Article>,
+  req: Request<{id: string}, unknown, Omit<Article, 'id'>>,
   res: Response<Article>,
   next: NextFunction,
 ) => {
