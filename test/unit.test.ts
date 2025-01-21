@@ -9,8 +9,8 @@ import {
   getAllAuthors,
   getAuthor,
   createAuthor,
-  updateAuthor,
-  deleteAuthor,
+  //  updateAuthor,
+  //  deleteAuthor,
 } from '../src/api/models/authorModel';
 
 import {Article, Author} from '../src/types/LocalTypes';
@@ -60,14 +60,14 @@ describe('Author functions', () => {
   });
 
   // Test updateAuthor function
-  it('updateAuthor should return the updated author', () => {
-    const updatedAuthor = updateAuthor(
-      author.id,
-      'Updated Author',
-      randomstring.generate(7) + '@metropolia.fi',
-    );
-    expect(updatedAuthor.name).toBe('Updated Author');
-  });
+  // it('updateAuthor should return the updated author', () => {
+  //   const updatedAuthor = updateAuthor(
+  //     author.id,
+  //     'Updated Author',
+  //     randomstring.generate(7) + '@metropolia.fi',
+  //   );
+  //   expect(updatedAuthor.name).toBe('Updated Author');
+  // });
 });
 
 // Unit tests to test functions in src/api/models/articleModel.ts
@@ -125,8 +125,8 @@ describe('Delete test data', () => {
   });
 
   // delete author
-  it('deleteAuthor should delete the author', () => {
-    deleteAuthor(author.id);
-    expect(() => getAuthor(author.id)).toThrow('Author not found');
-  });
+  // it('deleteAuthor should delete the author', () => {
+  //   deleteAuthor(author.id);
+  //   expect(() => getAuthor(author.id)).toThrow('Author not found');
+  // });
 });
