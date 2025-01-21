@@ -59,12 +59,12 @@ const articlePut = (
 };
 
 const articleDelete = (
-  req: Request<{id: string}>,
-  res: Response<unknown>,
+  req: Request<{id: string}, unknown, {author_id: string}>,
+  res: Response,
   next: NextFunction,
 ) => {
   try {
-    deleteArticle(Number(req.params.id));
+    deleteArticle(Number(req.params.id), Number(req.body.author_id));
     res.status(204).end();
   } catch (error) {
     next(new CustomError((error as Error).message, 500));
